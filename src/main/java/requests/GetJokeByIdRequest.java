@@ -8,18 +8,13 @@ import static helpers.RequestSpecBuilderProvider.getRequestSpecBuilder;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetRandomJokeRequest {
+public class GetJokeByIdRequest {
 
-    public JokeDto sendRequestAndDeserialize() {
-        Response response = sendRequest();
-        return response.as(JokeDto.class);
-    }
-
-    public Response sendRequest() {
+    public JokeDto sendRequest(int jokeId) {
         Response response = given()
                 .spec(getRequestSpecBuilder())
-                .get("random_joke");
+                .get("jokes/" + jokeId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.SC_OK);
-        return response;
+        return response.as(JokeDto.class);
     }
 }
