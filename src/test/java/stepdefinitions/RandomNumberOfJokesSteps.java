@@ -1,4 +1,4 @@
-package steps;
+package stepdefinitions;
 
 import dto.JokeDto;
 import io.cucumber.datatable.DataTable;

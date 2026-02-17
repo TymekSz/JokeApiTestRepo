@@ -1,4 +1,4 @@
-package steps;
+package stepdefinitions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.DefaultDataTableEntryTransformer;

@@ -1,4 +1,4 @@
-package steps;
+package stepdefinitions;
 
 import dto.JokeDto;
 import io.cucumber.java.en.Given;
@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import requests.GetApiJokeRequest;
-import requests.GetJokeByIdRequest;
 import requests.GetRandomJokeRequest;
 
 import java.lang.reflect.Field;
@@ -23,11 +22,6 @@ public class JokeApiSteps {
         new GetApiJokeRequest().sendRequest();
     }
 
-    @When("Get random deserialized joke")
-    public JokeDto getRandomDeserializedJoke() {
-        return new GetRandomJokeRequest().sendRequestAndDeserialize();
-    }
-
     @When("Get random joke")
     public Response getRandomJoke() {
         response = new GetRandomJokeRequest().sendRequest();
@@ -42,8 +36,4 @@ public class JokeApiSteps {
         assertThat(actualFields).containsExactlyInAnyOrderElementsOf(expectedFields);
     }
 
-    @When("Get joke by id: {int}")
-    public JokeDto getJokeById(int jokeId) {
-        return new GetJokeByIdRequest().sendRequest(jokeId);
-    }
 }
