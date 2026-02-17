@@ -99,10 +99,10 @@ mvn test -Dcucumber.options="src/test/resources/features/random_number_of_jokes.
 
 After test execution, reports are generated in multiple formats:
 
-### HTML Report (Masterthought)
+### HTML Report
 
 ```
-target/cucumber-html-reports/overview-features.html
+html:target/cucumber-reports/cucumber.html
 ```
 
 **How to view:** Right-click → Open in Browser
@@ -125,7 +125,7 @@ Test results are printed in the console with:
 ```java
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "steps",
+        glue = "stepdefinitions",
         plugin = {
                 "pretty",
                 "summary",
